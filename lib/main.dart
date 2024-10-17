@@ -1,4 +1,5 @@
 import 'package:adv_ch3/webView/in_appweb_view.dart';
+import 'package:adv_ch3/webView/webView2.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -18,7 +19,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
-     home: WebViewScreen(),
+     routes : {
+        '/web':(context)=>WebViewScreen(),
+        '/':(context)=>WebView2(),
+     }
+
     );
   }
 }
