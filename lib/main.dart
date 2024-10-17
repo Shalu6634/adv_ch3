@@ -1,6 +1,7 @@
+import 'package:adv_ch3/webView/in_appweb_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'home.dart';
 
 void main()
 {
@@ -12,9 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      getPages: [
+        GetPage(name: '/', page: () => WebViewScreen(),)
+      ],
     );
   }
 }

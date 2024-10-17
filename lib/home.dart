@@ -25,12 +25,12 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     height:50 ,
                     width: 270,
-                    padding: EdgeInsets.all(6),
+                    padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       color: Colors.green,
                           borderRadius: BorderRadius.circular(15)
                     ),
-                    child: Center(child: const Text('Mobile Connected to Internet',style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
+                    child: const Center(child:  Text('Mobile Connected to Internet',style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
                   ),
                 );
               }
@@ -40,12 +40,12 @@ class HomePage extends StatelessWidget {
               child: Container(
               height:50 ,
                 width: 270,
-                padding: EdgeInsets.all(6),
+                padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(15)
                 ),
-                child: Center(child: const Text('Mobile Connected to Wi-Fi',style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
+                child: const Center(child:  Text('Mobile Connected to Wi-Fi',style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
               ),
                           );
             } else {
