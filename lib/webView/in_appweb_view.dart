@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 
-
 TextEditingController txtSearch = TextEditingController();
-RxString search = ''.obs;
+String search = '';
 
-class WebViewScreen extends StatelessWidget {
+class WebViewScreen extends StatefulWidget {
   const WebViewScreen({super.key});
 
   @override
+  State<WebViewScreen> createState() => _WebViewScreenState();
+}
+
+class _WebViewScreenState extends State<WebViewScreen> {
+  @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         bottom: PreferredSize(
@@ -25,9 +27,13 @@ class WebViewScreen extends StatelessWidget {
                 child: GestureDetector(
                     onTap: () {
                       String data = txtSearch.text;
-                      search = data.obs;
+                      setState(() {
+                        search = data;
+                      });
                       print(search);
-                      Get.to(const WebViewScreen());
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => WebViewScreen(),
+                      ));
                     },
                     child: const Icon(
                       Icons.search,
@@ -36,13 +42,11 @@ class WebViewScreen extends StatelessWidget {
               ),
             )),
       ),
-      body: 
-      Center(
-        child: 
-       Obx(() =>  InAppWebView(
-         initialUrlRequest: URLRequest(
-             url: WebUri('https://www.google.com/search?q=${search}')),
-       ),)
+      body: Center(
+        child: InAppWebView(
+          initialUrlRequest: URLRequest(
+              url: WebUri('https://www.google.com/search?q=${search}')),
+        ),
       ),
     );
   }
